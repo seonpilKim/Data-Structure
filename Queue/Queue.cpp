@@ -53,6 +53,10 @@ public:
 	T front() const {
 		return this->head->data;
 	}
+	
+	T back() const{
+		return this->tail->data;
+	}
 
 	int size() const {
 		return this->_size;
