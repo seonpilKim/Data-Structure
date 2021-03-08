@@ -2,14 +2,15 @@
 
 using namespace std;
 
+template <typename T> class Stack;
+
 template <typename T>
 class Node {
 private:
 	T data;
 	Node* next;
 
-	template <typename T>
-	friend class Stack;
+	friend class Stack<T>;
 public:
 	Node(const T& data) {
 		this->data = data;
@@ -30,10 +31,9 @@ public:
 		this->_size = 0;
 	}
 
-	template <typename T>
 	void push(const T& data) {
 		Node<T>* newNode = new Node<T>(data);
-		if (this->_size == 0) 
+		if (this->_size == 0)
 			this->head = newNode;
 		else {
 			newNode->next = this->head;
@@ -41,27 +41,26 @@ public:
 		}
 		this->_size++;
 	}
-	
+
 	void pop() {
 		this->delNode = this->head;
 		this->head = this->head->next;
 		this->_size--;
-		delete this->delNode;	
+		delete this->delNode;
 	}
-	
+
 	T top() const {
 		return this->head->data;
 	}
-	
+
 	int size() const {
 		return this->_size;
 	}
-	
+
 	bool empty() const {
 		return (this->_size == 0 ? true : false);
 	}
 };
-
 
 int main() {
 	Stack<char> s;
