@@ -2,14 +2,15 @@
 
 using namespace std;
 
+template <typename T> class Queue;
+
 template <typename T>
 class Node {
 private:
 	T data;
 	Node* next;
 
-	template <typename T>
-	friend class Queue;
+	friend class Queue<T>;
 public:
 	Node(const T& data) {
 		this->data = data;
@@ -31,7 +32,6 @@ public:
 		this->_size = 0;
 	}
 
-	template <typename T>
 	void push(const T& data) {
 		Node<T>* newNode = new Node<T>(data);
 		if (this->_size == 0)
