@@ -33,7 +33,7 @@ Node<T>* find(const T& data) const {
 		}
 
 		return nullptr;
-	}
+}
 ```
 ___
 ## 삽입 연산
@@ -69,7 +69,7 @@ void insert(const T& data) {
 			}
 		}
 		this->_size++;
-	}
+}
 ```
 ___
 ## 삭제 연산
@@ -80,13 +80,14 @@ ___
 - 시간 복잡도 : `O(log N)`<br><br>
 - 삭제하려는 노드가 `단말노드`인 경우
     - 해당 노드를 탐색연산을 통해 찾은 뒤, 부모노드와 연결을 해제하고 삭제하려는 노드의 메모리를 반환시켜준다.
+    - 삭제하려는 노드가 왼쪽 or 오른쪽 서브트리 중 어느 것을 가지고 있는지 구분하여 각각 구현해주어야 한다.
     ```c++
     else if (!delNode->left && !delNode->right) {
 			if (delNode->par->left == delNode)
 				delNode->par->left = nullptr;
 			else if (delNode->par->right == delNode)
 				delNode->par->right = nullptr;
-		}
+	}
     ```
 - 삭제하려는 노드가 `한 개의 서브트리`만 가지는 경우
     - 해당 노드를 탐색연산을 통해 찾은 뒤, 삭제하려는 노드의 자식노드와 삭제하려는 노드의 부모노드를 서로 연결시킨다. 
@@ -102,8 +103,8 @@ ___
 				delNode->par->right = delNode->left;
 				delNode->left->par = delNode->par;
 			}
-		}
-		else if (!delNode->left && delNode->right) {
+	}
+	else if (!delNode->left && delNode->right) {
 			if (delNode->par->left == delNode) {
 				delNode->par->left = delNode->right;
 				delNode->right->par = delNode->par;
@@ -112,7 +113,7 @@ ___
 				delNode->par->right = delNode->right;
 				delNode->right->par = delNode->par;
 			}
-		}
+	}
     ```
 - 삭제하려는 노드가 `두 개의 서브트리`를 가지는 경우<br><br>
 ![](imgs/2.PNG)
@@ -142,5 +143,5 @@ ___
 			delNode->left->par = curNode;
 			curNode->right = delNode->right;
 			delNode->right->par = curNode;
-		}
+	}
     ```
