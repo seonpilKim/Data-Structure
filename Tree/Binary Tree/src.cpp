@@ -27,7 +27,7 @@ private:
 	Node<T>* _root;
 	int _size;
 
-	Node<T>* search(const T& data) {
+	Node<T>* search(const T& data) const {
 		if (this->_root->data == data) return this->_root;
 
 		Node<T>* curNode;
