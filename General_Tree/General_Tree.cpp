@@ -4,6 +4,8 @@
 
 using namespace std;
 
+template <typename T> class General_Tree;
+
 template <typename T>
 class Node {
 private:
@@ -11,8 +13,7 @@ private:
 	Node<T>* par;
 	vector<Node<T>*> children;
 
-	template <typename T>
-	friend class General_Tree;
+	friend class General_Tree<T>;
 public:
 	Node(const T& data) {
 		this->data = data;
@@ -26,7 +27,6 @@ private:
 	Node<T>* _root;
 	int _size;
 
-	template <typename T>
 	Node<T>* search(const T& data) {
 		if (this->_root->data == data) return this->_root;
 
@@ -46,12 +46,10 @@ private:
 		return nullptr;
 	}
 
-	template <typename T>
 	void process(Node<T>* node) const {
 		cout << node->data << " ";
 	}
 
-	template <typename T>
 	void _preorder(Node<T>* curNode) {
 		process(curNode);
 		for (Node<T>* child : curNode->children) {
@@ -59,7 +57,6 @@ private:
 		}
 	}
 
-	template <typename T>
 	void _postorder(Node<T>* curNode) {
 		for (Node<T>* child : curNode->children) {
 			_postorder(child);
@@ -67,7 +64,6 @@ private:
 		process(curNode);
 	}
 
-	template <typename T>
 	int __height() const {
 		int _height = -1;
 		queue<Node<T>*> q;
@@ -99,7 +95,6 @@ public:
 		this->_size = 0;
 	}
 
-	template <typename T>
 	void insert(const T& par_data, const T& data) {
 		Node<T>* newNode = new Node<T>(data);
 
@@ -114,7 +109,6 @@ public:
 		this->_size++;
 	}
 
-	template <typename T>
 	void remove(const T& data) {
 		Node<T>* delNode = search(data);
 		if (delNode == nullptr || delNode == this->_root) return;
