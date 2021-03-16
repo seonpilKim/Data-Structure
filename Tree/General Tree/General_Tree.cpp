@@ -27,7 +27,7 @@ private:
 	Node<T>* _root;
 	int _size;
 
-	Node<T>* search(const T& data) {
+	Node<T>* search(const T& data) const {
 		if (this->_root->data == data) return this->_root;
 
 		Node<T>* curNode;
@@ -50,14 +50,14 @@ private:
 		cout << node->data << " ";
 	}
 
-	void _preorder(Node<T>* curNode) {
+	void _preorder(Node<T>* curNode) const {
 		process(curNode);
 		for (Node<T>* child : curNode->children) {
 			_preorder(child);
 		}
 	}
 
-	void _postorder(Node<T>* curNode) {
+	void _postorder(Node<T>* curNode) const {
 		for (Node<T>* child : curNode->children) {
 			_postorder(child);
 		}
@@ -130,7 +130,7 @@ public:
 	}
 
 	int height() const {
-		return __height<char>();
+		return __height();
 	}
 
 	T root() const {
@@ -145,9 +145,9 @@ public:
 		return (this->_size == 0 ? true : false);
 	}
 
-	void preorder() { _preorder(this->_root); cout << '\n'; }
+	void preorder() const { _preorder(this->_root); cout << '\n'; }
 
-	void postorder() { _postorder(this->_root); cout << '\n'; }
+	void postorder() const { _postorder(this->_root); cout << '\n'; }
 };
 
 
