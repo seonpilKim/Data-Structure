@@ -1,7 +1,7 @@
 # Heap, 힙
 
 ## 개념
-- [완전 이진 트리](https://github.com/seonpilKim/Data-Structure/tree/master/Tree/Binary%20Tree)에 있는 노드 중에서` key 값이 가장 큰 노드` 또는 `key 값이 가장 작은 노드`를 찾기 위해서 만든 자료구조이며, `우선순위 큐`를 구현하는 데 사용되기도 한다.
+- [완전 이진 트리](https://github.com/seonpilKim/Data-Structure/tree/master/Tree/Binary%20Tree)에 있는 노드 중에서 `key 값이 가장 큰 노드` 또는 `key 값이 가장 작은 노드`를 찾기 위해서 만든 자료구조이며, `우선순위 큐`를 구현하는 데 사용되기도 한다.
 - 힙은 일종의 `반정렬 상태(느슨한 정렬 상태)`를 유지한다.
     - 큰(작은) 값이 상위 레벨에 있고 작은(큰) 값이 하위 레벨에 있다는 정도
     - [이진 탐색 트리](https://github.com/seonpilKim/Data-Structure/tree/master/Tree/Binary%20Search%20Tree)와 달리, 힙은 `중복 값을 허용`한다.
