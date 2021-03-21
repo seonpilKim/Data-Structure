@@ -49,3 +49,4 @@ ___
 				area = width * height;
 		}
         ```
+- Time complexity : O(n)
