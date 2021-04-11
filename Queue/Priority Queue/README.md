@@ -25,7 +25,13 @@
 ```
 - 선언
 ```c++
-priority_queue<T> pq;
+// priority_queue<자료형, Container, 비교함수> 식별자;
+priority_queue<pair<int, int>, vector<pair<int ,int>>, compare> pq;
+struct compare{
+	bool operator()(const pair<int, int>& n1, const pair<int, int>& n2){
+		return (n1.first >= n2.first) ? true : false;
+	}
+}
 ```
 - 우선순위 큐에 원소를 삽입
 	- 내부적으로 우선순위에 따라 정렬된다.
