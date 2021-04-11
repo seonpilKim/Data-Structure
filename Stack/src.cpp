@@ -22,12 +22,11 @@ template <typename T>
 class Stack {
 private:
 	Node<T>* head;
-	Node<T>* delNode;
 	int _size;
 
 public:
 	Stack() {
-		this->head = this->delNode = nullptr;
+		this->head = nullptr;
 		this->_size = 0;
 	}
 
@@ -43,10 +42,10 @@ public:
 	}
 
 	void pop() {
-		this->delNode = this->head;
+		Node<T>* delNode = this->head;
 		this->head = this->head->next;
 		this->_size--;
-		delete this->delNode;
+		delete delNode;
 	}
 
 	T top() const {
@@ -69,7 +68,7 @@ int main() {
 	cout << s.top() << endl;
 	cout << s.size() << endl;
 	s.pop();
-	cout << s.empty();
+	cout << s.empty() << endl;
 
 	return 0;
 }
