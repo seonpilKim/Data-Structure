@@ -23,7 +23,6 @@ class Queue {
 private:
 	Node<T>* head;
 	Node<T>* tail;
-	Node<T>* delNode;
 	int _size;
 
 public:
@@ -44,17 +43,17 @@ public:
 	}
 
 	void pop() {
-		this->delNode = this->head;
+		Node<T>* delNode = this->head;
 		this->head = this->head->next;
 		this->_size--;
-		delete this->delNode;
+		delete delNode;
 	}
 
 	T front() const {
 		return this->head->data;
 	}
-	
-	T back() const{
+
+	T back() const {
 		return this->tail->data;
 	}
 
