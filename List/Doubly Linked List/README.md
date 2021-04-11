@@ -306,3 +306,84 @@ bool empty() const noexcept {
 	return size() > 0 ? false : true;
 }
 ```
+
+## C++ STL
+- 헤더파일
+```c++
+#include <list>
+```
+- 선언
+```c++
+list<T> l;
+```
+- 반복자
+```c++
+list<T>::iterator iter = l.begin(); // *iter은 해당 iterator의 위치의 원소를 반환한다.
+auto iter = l.begin(); // C++11 타입 자동 추론 auto
+
+l.begin(); // list의 begin iterator 반환
+l.end(); // list의 end iterator 반환
+
+l.rbegin(); // list의 end reverse iterator 반환
+l.rend(); // list의 begin reverse iterator 반환
+
+l.cbegin(); // const 형태의 begin() (C++11)
+l.cend(); // const 형태의 end() (C++11)
+l.crbegin(); // const 형태의 rbegin() (C++11)
+l.crend(); // const형태의 rend() (C++11)
+```
+- 삽입
+```c++
+l.push_front(element); // list의 맨 앞에 원소 추가
+l.emplace_front(element); // 불필요한 복사 or 이동 작업을 피하면서 새로운 요소 구성 가능(C++11)
+
+l.push_back(element); // list의 맨 뒤에 원소 추가
+l.emplace_back(element); // 불필요한 복사 or 이동 작업을 피하면서 새로운 요소 구성 가능(C++11)
+
+l.insert(iterator, element); // list의 해당 iterator의 위치의 앞에 원소 추가
+l.emplace(iterator, element); // 불필요한 복사 or 이동 작업을 피하면서 새로운 요소 구성 가능(C++11)
+```
+- 삭제
+```c++
+l.pop_front(); // list의 맨 앞의 원소 삭제
+l.pop_back(); // list의 맨 뒤의 원소 삭제
+l.erase(iterator); // list의 해당 iterator의 위치의 원소 삭제
+```
+- 탐색
+```c++
+l.front(); // list의 맨 앞의 원소 반환
+l.back(); // list의 맨 뒤의 원소 반환
+```
+- Capacity
+```c++
+l.empty(); // list가 비어있는지 여부를 bool 타입으로 반환
+l.size(); // list에 들어있는 원소의 개수를 반환
+l.max_size(); // list에 담을 수 있는 원소의 최대 개수를 반환
+
+l.resize(a); // list의 원소 개수를 a개로 조정. 앞에서부터 a개의 원소는 변하지 않음.
+l.resize(a, b); // list에서 원소 개수를 a개로 조정.
+// 이전에 존재하던 list의 원소 개수를 n이라 하자.
+// a > n 인 경우, list의 뒤에 n-a개 만큼 b를 추가한다.
+// a <= n 인 경우, resize(a)와 동일하다.
+```
+- Modifiers
+```c++
+l.clear(); // list의 모든 원소를 제거한다.
+l.assign(n, element); // list의 기존 원소들은 모두 제거 후, list에 n개의 element를 할당한다.
+// parameter로 list 혹은 iterator를 전달할 수도 있다.
+
+list1.swap(list2); // list1과 list2의 원소를 swap한다.
+```
+- List operations
+```c++
+list1.merge(list2); // list1에 list2를 정렬하면서 병합한다.
+l.reverse(); // list에 담긴 원소의 순서를 역순으로 변경한다.
+l.unique(); // list에 담긴 원소 중 연속적으로 중복된 값이 배치된 원소를 제거한다.
+l.sort(); // list에 담긴 원소를 오름차순으로 정렬한다.
+l.remove(element); // list에 element와 동일한 원소를 모두 삭제한다.
+l.remove_if(bool function); // list에 function 조건에 해당하는 모든 원소를 삭제한다.
+
+list1.splice(iterator, list2); // list1의 iterator 위치의 앞에 list2의 모든 원소를 삽입한다.
+list1.splice(iterator, list2, list2iter); // list1의 iterator 위치의 앞에 list2의 list2iter 위치의 원소를 삽입한다.
+list1.splice(iterator, list2, list2iter, list2.end()); // list1의 iterator 위치의 앞에 list2의 list2iter 위치의 원소부터 list2.end() 위치의 원소까지 모두 삽입한다.
+```
