@@ -28,7 +28,8 @@ private:
 	int _size;
 
 	Node<T>* search(const T& data) const {
-		if (this->_root->data == data) return this->_root;
+		if (this->_root->data == data) 
+			return this->_root;
 
 		Node<T>* curNode;
 		queue<Node<T>*> q;
@@ -38,7 +39,8 @@ private:
 			curNode = q.front(); q.pop();
 
 			for (Node<T>* child : curNode->children) {
-				if (child->data == data) return child;
+				if (child->data == data) 
+					return child;
 				q.push(child);
 			}
 		}
@@ -112,7 +114,7 @@ public:
 	void remove(const T& data) {
 		Node<T>* delNode = search(data);
 		if (delNode == nullptr || delNode == this->_root) return;
-		
+
 		for (Node<T>* child : delNode->children) {
 			child->par = delNode->par;
 			delNode->par->children.push_back(child);
