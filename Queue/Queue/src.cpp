@@ -27,7 +27,7 @@ private:
 
 public:
 	Queue() {
-		this->head = this->tail = this->delNode = nullptr;
+		this->head = this->tail = nullptr;
 		this->_size = 0;
 	}
 
