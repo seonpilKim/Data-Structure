@@ -1,4 +1,4 @@
-# [[14595] 피리 부는 사나이](https://www.acmicpc.net/problem/16724)
+# [[16724] 피리 부는 사나이](https://www.acmicpc.net/problem/16724)
 
 ![](imgs/1.PNG)
 ![](imgs/2.PNG)
