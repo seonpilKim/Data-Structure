@@ -1,4 +1,4 @@
-# [[22942] 데이터 체커](https://www.acmicpc.net/problem/22942)
+# [[17298] 오큰수](https://www.acmicpc.net/problem/17298)
 
 ![](imgs/1.PNG)
 ![](imgs/2.PNG)
