@@ -1,4 +1,4 @@
-# [[2263] 트리의 순회](https://www.acmicpc.net/problem/263)
+# [[2263] 트리의 순회](https://www.acmicpc.net/problem/2263)
 
 ## 🤔접근
 - 중위 순회와 후위 순회 모두 맨 왼쪽 자식부터 탐색을 시작한다.
