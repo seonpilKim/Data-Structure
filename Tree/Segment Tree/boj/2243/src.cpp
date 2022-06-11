@@ -84,24 +84,23 @@ int main() {
     int h = ceil(log2(MAX));
     vector<int> tree(1 << (h + 1));
 
-
     while (n--) {
-        int A, B, C;
+        int A, B, C, candy;
         cin >> A;
         
         if (A == 1) {
             cin >> B;
-            int candy = find(tree, 1, 0, MAX - 1, B);
+            C = -1;
+            candy = find(tree, 1, 0, MAX - 1, B);
             cout << candy + 1 << '\n';
-            values[candy]--;
-            update(tree, 1, 0, MAX - 1, candy, -1);
         }
         else {
             cin >> B >> C;
-            int candy = B - 1;
-            values[candy] += C;
-            update(tree, 1, 0, MAX - 1, candy, C);
+            candy = B - 1;
         }
+
+        values[candy] += C;
+        update(tree, 1, 0, MAX - 1, candy, C);
     }
 
 	return 0;
