@@ -40,22 +40,6 @@ matrix operator*(matrix A, matrix B) {
 
 const int MAX = 1000000;
 
-void init(const vector<int>& values, vector<int>& tree, int node, int start, int end) {
-    if (start == end) {
-        tree[node] = values[start] > 0 ? 1 : 0;
-    }
-    else {
-        const int left = node * 2;
-        const int right = left + 1;
-        const int mid = (start + end) / 2;
-
-        init(values, tree, left, start, mid);
-        init(values, tree, right, mid + 1, end);
-
-        tree[node] = tree[left] + tree[right];
-    }
-}
-
 void update(vector<int>& tree, int node, int start, int end, int index, int diff) {
     if (index < start || index > end) {
         return;
@@ -100,7 +84,6 @@ int main() {
     int h = ceil(log2(MAX));
     vector<int> tree(1 << (h + 1));
 
-    init(values, tree, 1, 0, MAX - 1);
 
     while (n--) {
         int A, B, C;
